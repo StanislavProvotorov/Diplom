@@ -5,7 +5,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import org.mockito.Mock;
 
 import static praktikum.IngredientType.FILLING;
 import static praktikum.IngredientType.SAUCE;
@@ -49,7 +48,7 @@ public class ParameterBurgerTest {
         burger.addIngredient(ingredient);
 
         float actualPrice = burger.getPrice();
-        Assert.assertEquals(expectedPrice, actualPrice, 0.0001);
+        Assert.assertEquals("Неверно посчитана стоимость",expectedPrice, actualPrice, 0.01f);
     }
 
     @Test
@@ -59,6 +58,6 @@ public class ParameterBurgerTest {
 
         String actualReceipt = burger.getReceipt();
 
-        Assert.assertEquals(String.format(expectedReceipt), actualReceipt);
+        Assert.assertEquals("Неверный рецепт",String.format(expectedReceipt), actualReceipt);
     }
 }

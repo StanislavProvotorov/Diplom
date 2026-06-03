@@ -16,10 +16,10 @@ public class BurgerTest {
     Bun mockBun;
 
     @Mock
-    Ingredient mockIngredients1;
+    Ingredient mockIngredientsOne;
 
     @Mock
-    Ingredient mockIngredients2;
+    Ingredient mockIngredientsTwo;
 
     @Before
     public void setUp() {
@@ -30,33 +30,33 @@ public class BurgerTest {
     public void setBunsTest(){
         burger.setBuns(mockBun);
 
-        assertEquals(mockBun, burger.bun);
+        assertEquals("Булка не создана",mockBun, burger.bun);
     }
 
     @Test
     public void addIngredientTest() {
-        burger.addIngredient(mockIngredients1);
+        burger.addIngredient(mockIngredientsOne);
 
-        assertEquals(mockIngredients1, burger.ingredients.get(0));
+        assertEquals("Ингредиент не добавлен",mockIngredientsOne, burger.ingredients.get(0));
     }
 
     @Test
     public void removeIngredientTest() {
-        burger.addIngredient(mockIngredients1);
-        burger.addIngredient(mockIngredients2);
+        burger.addIngredient(mockIngredientsOne);
+        burger.addIngredient(mockIngredientsTwo);
 
         burger.removeIngredient(0);
 
-        assertEquals(mockIngredients2, burger.ingredients.get(0));
+        assertEquals("Не удален ингредиент",mockIngredientsTwo, burger.ingredients.get(0));
     }
 
     @Test
     public void moveIngredientTest() {
-        burger.addIngredient(mockIngredients1);
-        burger.addIngredient(mockIngredients2);
+        burger.addIngredient(mockIngredientsOne);
+        burger.addIngredient(mockIngredientsTwo);
 
         burger.moveIngredient(0, 1);
 
-        assertEquals(mockIngredients2, burger.ingredients.get(0));
+        assertEquals("Позиция ингредиента не изменена",mockIngredientsTwo, burger.ingredients.get(0));
     }
 }
